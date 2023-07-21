@@ -21,8 +21,8 @@ class UserProcess {
         $com = $this->con->prepare($sql);
         $com->bind_param("ss", $name, $email);
         $com->execute();
-        $result = $com->get_result();
-        return $result->fetch_assoc();
+        $com->get_result();
+        return "ok";
     }
 }
 ?>

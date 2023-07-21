@@ -22,7 +22,22 @@
             <input type="text" id="IDuser" name="IDuser" class = "form-control">
             <input type="submit" name="Getdata" value="leer usuario" class = "btn btn-primary mt2">
         </form>    
-
+        <?php
+        require_once "UserProcess.php";
+        $userProcess = new UserProcess();
+        if (isset($_POST['RegisterUser'])){
+            $userdata = $userProcess->insertUser($_POST['IDName'], $_POST['IDEmail']);
+            echo "<p class='mt-2'> ok</p>";
+        }
+        ?>
+        <form method="post" action="" class="form-group">
+            <h2>Registrar usuario</h2>
+            <label for="IDName">Nombre: </label>
+            <input type="text" id="IDName" name="IDName" class = "form-control">
+            <label for="IDEmail">Email: </label>
+            <input type="text" id="IDEmail" name="IDEmail" class = "form-control">
+            <input type="submit" name="RegisterUser" value="Registrar usuario" class = "btn btn-primary mt2">
+        </form>  
     </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
   </body>
